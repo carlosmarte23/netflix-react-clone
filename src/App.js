@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 export function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/browse">
           <p>I will be the sign in page</p>
