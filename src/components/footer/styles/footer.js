@@ -33,6 +33,10 @@ export const Link = styled.a`
   font-size: 13px;
   margin-bottom: 20px;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Title = styled.p`
