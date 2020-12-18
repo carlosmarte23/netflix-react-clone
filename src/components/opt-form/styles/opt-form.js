@@ -1,16 +1,17 @@
 import styled from 'styled-components';
-import { OptForm } from '../..';
 
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   height: 100%;
+  margin: 0 auto;
   margin-top: 20px;
   flex-wrap: wrap;
-  align-items: center;
+  max-width: 1400px;
 
   @media (max-width: 1000px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -56,18 +57,19 @@ export const Button = styled.button`
   }
 `;
 
+export const Break = styled.div`
+  flex-basis: 100%
+  height:0;
+`;
+
 export const Text = styled.p`
   font-size: 19px;
   color: white;
   text-align: center;
+  display: block;
 
   @media (max-width: 600px) {
     font-size: 16px;
     line-height: 22px;
   }
-`;
-
-export const Break = styled.div`
-  flex-basis: 100%
-  height:0;
 `;
