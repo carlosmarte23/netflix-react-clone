@@ -11,7 +11,7 @@ export function HeaderContainer({ children }) {
           src={`${process.env.PUBLIC_URL}/images/misc/logo.svg`}
           alt="Go home"
         />
-        <Header.ButtonLink to={ROUTES.SIGN_UP}>Sign In</Header.ButtonLink>
+        <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
       </Header.Frame>
       {children}
     </Header>
