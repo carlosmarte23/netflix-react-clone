@@ -13,7 +13,7 @@ const config = {
   appId: '1:414793598771:web:946633717ee109190a6046',
 };
 
-// const firebase = window.firebase.initializeApp(config);
+const firebase = window.firebase.initializeApp(config);
 
 ReactDOM.render(
   <>
