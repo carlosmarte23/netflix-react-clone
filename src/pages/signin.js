@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HeaderContainer } from '../containers/header';
 import { FooterContainer } from '../containers/footer';
 import { Form } from '../components';
+import * as ROUTES from '../constants/routes';
 
 export default function SignIn() {
   const [error, setError] = useState('');
@@ -40,7 +41,8 @@ export default function SignIn() {
               Sign In
             </Form.Submit>
             <Form.Text>
-              New to Netflix? <Form.Link to="/singup">Sign up now.</Form.Link>
+              New to Netflix?
+              <Form.Link to={ROUTES.SIGN_UP}> Sign up now.</Form.Link>
             </Form.Text>
             <Form.TextSmall>
               This page is protected by Google reCAPTCHA.
