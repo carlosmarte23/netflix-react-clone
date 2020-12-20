@@ -1,21 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { FirebaseContext } from '../context/firebase';
+
 import { HeaderContainer } from '../containers/header';
 import { FooterContainer } from '../containers/footer';
 import { Form } from '../components';
 import * as ROUTES from '../constants/routes';
 
 export default function SignIn() {
-  const [error, setError] = useState('');
-  const [emailAddress, setEmailAddress] = useState('');
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
+
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const isInvalid = !emailAddress | !password;
+  // check if form is not empty
+  const isInvalid = !email | !password;
 
+  //Call in here to firebase to authenticate user.
+  //if there is an error, populate the error state.
   const handleSignin = (event) => {
     event.preventDefault();
 
-    //Call in here to firebase to authenticate user.
-    //if there is an error, populate the error state.
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setEmail('');
+        setPassword('');
+        setError('');
+        history.push(ROUTES.BROWSE);
+      })
+      .catch((error) => setError(error.message));
   };
 
   return (
@@ -27,8 +44,8 @@ export default function SignIn() {
           <Form.Base onSubmit={handleSignin} method="POST">
             <Form.Input
               placeholder="Email address"
-              value={emailAddress}
-              onChange={({ target }) => setEmailAddress(target.value)}
+              value={email}
+              onChange={({ target }) => setEmail(target.value)}
             />
             <Form.Input
               type="password"
