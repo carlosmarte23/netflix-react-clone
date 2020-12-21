@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as ReachRouterLink } from 'react-router-dom';
 import {
   Background,
@@ -11,6 +11,9 @@ import {
   Feature,
   FeatureCallOut,
   PlayButton,
+  Search,
+  SearchIcon,
+  SearchInput,
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {
@@ -58,4 +61,29 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({
 
 Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
   return <PlayButton {...restProps}>{children}</PlayButton>;
+};
+
+Header.Search = function HeaderSerch({
+  searchTerm,
+  setSearchTerm,
+  ...restProps
+}) {
+  const [searchActive, setSearchActive] = useState(false);
+
+  return (
+    <Search {...restProps}>
+      <SearchIcon onClick={() => setSearchActive(!searchActive)}>
+        <img
+          src={`${process.env.PUBLIC_URL}/images/icons/search.png`}
+          alt="search"
+        />
+      </SearchIcon>
+      <SearchInput
+        value={searchTerm}
+        onChange={({ target }) => setSearchTerm(target.value)}
+        placeholder="Search films and series."
+        active={searchActive}
+      />
+    </Search>
+  );
 };
