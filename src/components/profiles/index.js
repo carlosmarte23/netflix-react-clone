@@ -21,7 +21,9 @@ Profiles.Picture = function ProfilePicture({ src, ...restProps }) {
   return (
     <Picture
       {...restProps}
-      src={src ? `./images/users/${src}.png` : './images/misc/loading.gif'}
+      src={`${process.env.PUBLIC_URL}${
+        src ? `/images/users/${src}.png` : '/images/misc/loading.gif'
+      }`}
     />
   );
 };
