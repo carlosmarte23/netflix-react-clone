@@ -87,3 +87,43 @@ export const Logo = styled.img`
     width: 167px;
   }
 `;
+
+export const Feature = styled(Container)`
+  padding: 150px 0 500px 0;
+  flex-direction: column;
+  align-items: normal;
+  width: 50%;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
+`;
+
+export const FeatureCallOut = styled.div`
+  color: white;
+  font-size: 50px;
+  line-height: normal;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin: 0;
+`;
+
+export const PlayButton = styled.button`
+  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+  background-color: #e6e6e6;
+  color: #000;
+  border-width: 0;
+  padding: 10px 20px;
+  border-radious: 5px;
+  max-width: 130px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    background-color: #ff1e1e;
+    color: white;
+  }
+`;
