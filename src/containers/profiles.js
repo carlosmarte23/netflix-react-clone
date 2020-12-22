@@ -19,7 +19,6 @@ export function SelectProfileContainer({ user, setProfile }) {
         <Profiles.List>
           <Profiles.User
             onClick={() => {
-              console.log('clicked');
               setProfile({
                 displayName: user.displayName,
                 photoURL: user.photoURL,
