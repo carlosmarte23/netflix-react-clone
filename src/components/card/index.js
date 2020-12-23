@@ -1,5 +1,4 @@
 import React, { useState, useContext, createContext } from 'react';
-import { Container } from '../jumbotron/styles/jumbotron';
 import {
   Group,
   Container,
@@ -9,6 +8,7 @@ import {
   Feature,
   FeatureTitle,
   FeatureClose,
+  FeatureText,
   Maturity,
   Content,
   Meta,
