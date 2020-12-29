@@ -33,14 +33,15 @@ export default function SignUp() {
             photoUrl: Math.floor(Math.random() * 5) + 1,
           })
           .then(() => {
-            setEmail('');
-            setPassword('');
-            setFirstName('');
-            setError('');
             history.push(ROUTES.BROWSE);
           });
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        setFirstName('');
+        setEmail('');
+        setPassword('');
+        setError(error.message);
+      });
   };
 
   return (

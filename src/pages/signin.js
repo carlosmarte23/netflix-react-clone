@@ -27,12 +27,13 @@ export default function SignIn() {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        setEmail('');
-        setPassword('');
-        setError('');
         history.push(ROUTES.BROWSE);
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        setEmail('');
+        setPassword('');
+        setError(error.message);
+      });
   };
 
   return (
