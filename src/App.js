@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { HashRouter as Router, Switch } from 'react-router-dom';
 import { Home, SignIn, SignUp, Browse } from './pages';
 import * as ROUTES from './constants/routes';
 import { useAuthListener } from './hooks';
@@ -8,7 +8,7 @@ import { IsUserRedirect, ProtectedRoute } from './helper/routes';
 export function App() {
   const { user } = useAuthListener();
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Switch>
         <IsUserRedirect
           user={user}
